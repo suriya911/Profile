@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f7fa;
+  /* silvery white */
+  --foreground: #111111;
+  /* black text */
+  --header-footer-bg: linear-gradient(135deg, #b3e0ff 0%, #e9f6fb 100%);
+  /* glossy sky blue */
 }
 
 @theme inline {
@@ -14,9 +18,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #23272f;
+    /* silvery dark grey */
+    --foreground: #ffffff;
+    /* white text */
+    --header-footer-bg: linear-gradient(135deg, #23272f 0%, #000000 100%);
+    /* glossy black */
   }
+}
+
+.dark {
+  --background: #23272f;
+  /* silvery dark grey */
+  --foreground: #ffffff;
+  /* white text */
+  --header-footer-bg: linear-gradient(135deg, #23272f 0%, #000000 100%);
+  /* glossy black */
 }
 
 body {
