@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useThemeStore } from '@/lib/theme';
 import ThemeToggle from './ThemeToggle';
 import { FaHome, FaUser, FaFolderOpen, FaTrophy, FaGraduationCap, FaEnvelope } from 'react-icons/fa';
+import { useEffect } from 'react';
 
 const navigationItems = [
     { name: 'Home', href: '/', icon: <FaHome /> },
@@ -16,6 +17,14 @@ const navigationItems = [
 
 export default function Header() {
     const { theme } = useThemeStore();
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            import('aos').then(AOS => {
+                AOS.init();
+            });
+        }
+    }, []);
 
     return (
         <header className="sticky top-0 z-50">

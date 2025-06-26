@@ -33,10 +33,6 @@ export default function RootLayout({
                 <Header />
                 <main>{children}</main>
                 <Footer />
-                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                <script dangerouslySetInnerHTML={{
-                    __html: 'AOS.init();'
-                }} />
             </body>
         </html>
     );
