@@ -11,9 +11,9 @@ interface TypingEffectProps {
 
 export default function TypingEffect({
     texts,
-    typingSpeed = 80,
-    erasingSpeed = 40,
-    newTextDelay = 1000
+    typingSpeed = 100,
+    erasingSpeed = 100,
+    newTextDelay = 50
 }: TypingEffectProps) {
     const [displayText, setDisplayText] = useState('');
     const [textIndex, setTextIndex] = useState(0);
