@@ -1,9 +1,13 @@
 /* ---------------------------------------------------------------------- */
-/* RESET AND BASE STYLES */
+/* FONT IMPORTS */
 /* ---------------------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* ---------------------------------------------------------------------- */
+/* RESET & BASE STYLES */
+/* ---------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -11,18 +15,25 @@
 }
 
 body {
-    /* Default: DARK MODE */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #ccd6f6;
     background-color: #0c1650;
     background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
     background-size: 18px 18px;
     min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    color: #ccd6f6;
+    background-color: #0c1650;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 18px 18px;
 }
 
 /* ---------------------------------------------------------------------- */
-/* HEADER */
+/* HEADER & LOGO */
 /* ---------------------------------------------------------------------- */
 header {
     position: sticky;
@@ -31,16 +42,16 @@ header {
     background-color: rgba(47, 62, 84, 0.95);
     backdrop-filter: blur(10px);
     color: #fff;
-    padding: 0.75rem 2rem;
+    padding: 0.25rem 10rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
-/* Logo */
 .logo-container {
     display: flex;
     align-items: center;
@@ -54,22 +65,41 @@ header {
 }
 
 .logo-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3em;
-    font-weight: 600;
+    font-family: 'Marck Script', cursive !important;
+    font-size: 4em;
+    font-weight: 1000;
+    letter-spacing: 0.08em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.dark-theme-logo {
     background: linear-gradient(135deg, #9b111e, #9b59b6);
     background-size: 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
     animation: gradientFlow 8s ease infinite;
-    transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
-.logo-text:hover {
+.dark-theme-logo:hover {
     transform: scale(1.05);
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.light-theme-logo {
+    background: linear-gradient(135deg, #00ff00, #0000ff);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 8s ease infinite;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.light-theme-logo:hover {
+    transform: scale(1.05);
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 @keyframes gradientFlow {
@@ -86,7 +116,9 @@ header {
     }
 }
 
-/* Navigation */
+/* ---------------------------------------------------------------------- */
+/* NAVIGATION */
+/* ---------------------------------------------------------------------- */
 nav ul {
     display: flex;
     justify-content: center;
@@ -94,14 +126,10 @@ nav ul {
     gap: 1.5rem;
 }
 
-nav ul li {
-    margin: 0;
-}
-
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -114,18 +142,17 @@ nav ul li a {
 nav ul li a:hover {
     color: #ffb3b3;
     background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /* ---------------------------------------------------------------------- */
-/* MAIN CONTENT */
+/* MAIN CONTENT & HERO */
 /* ---------------------------------------------------------------------- */
 main {
-    min-height: 100vh;
-    padding: 0;
+    /* Only keep padding for footer overlap if needed */
+    padding-bottom: 2.5rem;
 }
 
-/* Hero Section */
 #hero {
     color: #fff;
     text-align: center;
@@ -143,7 +170,9 @@ main {
     margin-bottom: 1em;
 }
 
-/* Section Styling */
+/* ---------------------------------------------------------------------- */
+/* SECTIONS & CARDS */
+/* ---------------------------------------------------------------------- */
 section {
     margin: 0;
     padding: 4rem 1rem;
@@ -151,7 +180,6 @@ section {
     box-shadow: none;
 }
 
-/* Projects */
 .project {
     margin-bottom: 2rem;
     padding: 2rem;
@@ -182,7 +210,6 @@ section {
     color: #ffd700;
 }
 
-/* Achievements List */
 .achievements-list {
     list-style: disc inside;
     margin-left: 1em;
@@ -211,7 +238,6 @@ section {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Education & Certifications */
 .education,
 .certifications {
     margin-bottom: 2rem;
@@ -241,7 +267,6 @@ section {
     margin-bottom: 0.5rem;
 }
 
-/* Contact */
 #contact ul {
     list-style: none;
     color: #fff;
@@ -283,7 +308,7 @@ footer {
 /* THEME TOGGLE */
 /* ---------------------------------------------------------------------- */
 .theme-btn {
-    background: none;
+    background: white;
     border: none;
     color: #fff;
     font-size: 1.5rem;
@@ -294,40 +319,50 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    overflow: hidden;
+    caret-color: transparent;
+}
+
+.theme-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #e0e0e0;
 }
 
 .theme-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #f8f9fa;
     transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* ---------------------------------------------------------------------- */
-/* LIGHT MODE OVERRIDES */
-/* ---------------------------------------------------------------------- */
+.theme-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
 body.light-mode {
-    color: #000;
-    background-color: #e3edf7;
-    background-image: radial-gradient(#0b1d51 1px, transparent 1px);
+    color: #1a1a1a;
+    background-color: #f8f9fa;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 18px 18px;
 }
 
-body.light-mode .logo-text {
-    background: linear-gradient(135deg, #00ff00, #0000ff);
-    background-size: 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientFlow 8s ease infinite;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
-}
-
 body.light-mode header {
-    background-color: rgba(227, 237, 247, 0.95);
-    color: #000;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode nav ul li a {
-    color: #000;
+    color: #1a1a1a;
 }
 
 body.light-mode nav ul li a:hover {
@@ -336,7 +371,7 @@ body.light-mode nav ul li a:hover {
 }
 
 body.light-mode section {
-    color: #000;
+    color: #1a1a1a;
 }
 
 body.light-mode .project,
@@ -344,21 +379,65 @@ body.light-mode .education,
 body.light-mode .certifications,
 body.light-mode .achievements-list li,
 body.light-mode #contact li {
-    background: rgba(255, 255, 255, 0.8);
-    color: #000;
+    background: rgba(255, 255, 255, 0.9);
+    color: #1a1a1a;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .project:hover,
+body.light-mode .education:hover,
+body.light-mode .certifications:hover,
+body.light-mode .achievements-list li:hover,
+body.light-mode #contact li:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .project h2,
+body.light-mode .education h2,
+body.light-mode .certifications h2 {
+    color: #1a1a1a;
+}
+
+body.light-mode .project a,
+body.light-mode #contact a {
+    color: #0066cc;
+}
+
+body.light-mode .project a:hover,
+body.light-mode #contact a:hover {
+    color: #004499;
+}
+
+body.light-mode .achievements-list {
+    color: #1a1a1a;
+}
+
+body.light-mode .education p,
+body.light-mode .certifications ul {
+    color: #333;
 }
 
 body.light-mode footer {
     background-color: rgba(255, 255, 255, 0.95);
-    color: #000;
+    color: #1a1a1a;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .theme-btn {
-    color: #000;
+    background: #1a1a1a;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 body.light-mode .theme-btn:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode #hero {
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.8), rgba(255, 255, 255, 0.8));
+    color: #1a1a1a;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -423,4 +502,12 @@ body.light-mode .theme-btn:hover {
     #hero p {
         font-size: 1rem;
     }
+}
+
+.footer-fixed {
+    position: fixed !important;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
 }

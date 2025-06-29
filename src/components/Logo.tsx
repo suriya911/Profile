@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useThemeStore } from '@/lib/theme';
 
 interface LogoProps {
     text?: string;
@@ -9,20 +9,16 @@ interface LogoProps {
 }
 
 export default function Logo({ text = "Suriya", className = "" }: LogoProps) {
-    useEffect(() => {
-        const link = document.createElement('link');
-        link.href = 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap';
-        link.rel = 'stylesheet';
-        document.head.appendChild(link);
-
-        return () => {
-            document.head.removeChild(link);
-        };
-    }, []);
+    const { theme } = useThemeStore();
 
     return (
         <Link href="/" className={`logo-container ${className}`}>
-            <div className="logo-text">{text}</div>
+            <div
+                className={`logo-text ${theme === 'light' ? 'light-theme-logo' : 'dark-theme-logo'}`}
+                style={{ fontFamily: "'Marck Script', cursive" }}
+            >
+                {text}
+            </div>
         </Link>
     );
 } 

@@ -1,8 +1,8 @@
 'use client';
 
-import { Moon, Sun } from 'lucide-react';
 import { useThemeStore } from '@/lib/theme';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function ThemeToggle() {
     const { theme, toggleTheme } = useThemeStore();
@@ -21,7 +21,13 @@ export default function ThemeToggle() {
             className="theme-btn"
             title="Toggle Theme"
         >
-            {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
+            <Image
+                src={theme === 'light' ? '/dark-theme-image.png' : '/light-theme-image.png'}
+                alt={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+                width={30}
+                height={30}
+                className="theme-icon"
+            />
         </button>
     );
 } 
