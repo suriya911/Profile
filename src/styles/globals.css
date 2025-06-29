@@ -29,11 +29,17 @@ body {
 body.light-mode {
     color: #1a1a1a;
     background-color: #fff;
+    background-image: url('/light.png');
+    background-size: cover;
+    background-position: center;
 }
 
 body.dark-mode {
     color: #ccd6f6;
     background-color: #fff;
+    background-image: url('/dark.png');
+    background-size: cover;
+    background-position: center;
 }
 
 /* =============================
@@ -42,6 +48,9 @@ body.dark-mode {
 header,
 footer {
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body.light-mode header,
@@ -245,54 +254,6 @@ body.light-mode nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-body.light-mode section {
-    color: #1a1a1a;
-}
-
-body.light-mode .project,
-body.light-mode .education,
-body.light-mode .certifications,
-body.light-mode .achievements-list li,
-body.light-mode #contact li {
-    background: rgba(255, 255, 255, 0.9);
-    color: #1a1a1a;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .project:hover,
-body.light-mode .education:hover,
-body.light-mode .certifications:hover,
-body.light-mode .achievements-list li:hover,
-body.light-mode #contact li:hover {
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .project h2,
-body.light-mode .education h2,
-body.light-mode .certifications h2 {
-    color: #1a1a1a;
-}
-
-body.light-mode .project a,
-body.light-mode #contact a {
-    color: #0066cc;
-}
-
-body.light-mode .project a:hover,
-body.light-mode #contact a:hover {
-    color: #004499;
-}
-
-body.light-mode .achievements-list {
-    color: #1a1a1a;
-}
-
-body.light-mode .education p,
-body.light-mode .certifications ul {
-    color: #333;
-}
-
 body.light-mode footer {
     background-color: rgba(255, 255, 255, 0.95);
     color: #1a1a1a;
@@ -310,14 +271,9 @@ body.light-mode .theme-btn:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-body.light-mode #hero {
-    background: linear-gradient(135deg, rgba(248, 249, 250, 0.8), rgba(255, 255, 255, 0.8));
-    color: #1a1a1a;
-}
-
-/* ---------------------------------------------------------------------- */
-/* RESPONSIVE DESIGN */
-/* ---------------------------------------------------------------------- */
+/* =============================
+   RESPONSIVE DESIGN
+   ============================= */
 @media (max-width: 768px) {
     header {
         padding: 0.5rem 1rem;
@@ -341,40 +297,10 @@ body.light-mode #hero {
         font-size: 2em;
         margin-bottom: 0.5em;
     }
-
-    #hero {
-        padding: 4rem 1rem;
-    }
-
-    #hero h1 {
-        font-size: 2.5rem;
-    }
-
-    #hero p {
-        font-size: 1.25rem;
-    }
-
-    section {
-        padding: 2rem 1rem;
-    }
-
-    .project,
-    .education,
-    .certifications {
-        padding: 1.5rem;
-    }
 }
 
 @media (max-width: 480px) {
     .logo-text {
         font-size: 1.75rem;
-    }
-
-    #hero h1 {
-        font-size: 2rem;
-    }
-
-    #hero p {
-        font-size: 1rem;
     }
 }
