@@ -1,47 +1,70 @@
-/* ---------------------------------------------------------------------- */
-/* FONT IMPORTS */
-/* ---------------------------------------------------------------------- */
+/* =============================
+   FONT IMPORTS
+   ============================= */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ---------------------------------------------------------------------- */
-/* RESET & BASE STYLES */
-/* ---------------------------------------------------------------------- */
+/* =============================
+   RESET & BASE STYLES
+   ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* =============================
+   THEME & BACKGROUND
+   ============================= */
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #ccd6f6;
-    background-color: #0c1650;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-    background-size: 18px 18px;
+    color: #1a1a1a;
+    background-color: #fff;
     min-height: 100vh;
     transition: all 0.3s ease;
 }
 
-body.dark-mode {
-    color: #ccd6f6;
-    background-color: #0c1650;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-    background-size: 18px 18px;
+body.light-mode {
+    color: #1a1a1a;
+    background-color: #fff;
 }
 
-/* ---------------------------------------------------------------------- */
-/* HEADER & LOGO */
-/* ---------------------------------------------------------------------- */
+body.dark-mode {
+    color: #ccd6f6;
+    background-color: #fff;
+}
+
+/* =============================
+   HEADER & FOOTER GRADIENTS
+   ============================= */
+header,
+footer {
+    color: #fff;
+}
+
+body.light-mode header,
+body.light-mode footer {
+    background: linear-gradient(90deg, #bae6fd 0%, #38bdf8 100%);
+    /* light sky blue gradient */
+    color: #1a1a1a;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background: linear-gradient(90deg, #232526 0%, #414345 100%);
+    /* dark grey gradient */
+    color: #fff;
+}
+
+/* =============================
+   HEADER LAYOUT & LOGO
+   ============================= */
 header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background-color: rgba(47, 62, 84, 0.95);
-    backdrop-filter: blur(10px);
-    color: #fff;
     padding: 0.25rem 10rem;
     display: flex;
     align-items: center;
@@ -116,9 +139,9 @@ header {
     }
 }
 
-/* ---------------------------------------------------------------------- */
-/* NAVIGATION */
-/* ---------------------------------------------------------------------- */
+/* =============================
+   NAVIGATION BAR
+   ============================= */
 nav ul {
     display: flex;
     justify-content: center;
@@ -128,7 +151,7 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: inherit;
     font-size: 1.3rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
@@ -145,168 +168,27 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
-/* ---------------------------------------------------------------------- */
-/* MAIN CONTENT & HERO */
-/* ---------------------------------------------------------------------- */
+/* =============================
+   MAIN (for footer overlap)
+   ============================= */
 main {
-    /* Only keep padding for footer overlap if needed */
     padding-bottom: 2.5rem;
 }
 
-#hero {
-    color: #fff;
-    text-align: center;
-    padding: 6rem 1rem;
-    background: linear-gradient(135deg, rgba(12, 22, 80, 0.8), rgba(47, 62, 84, 0.8));
-}
-
-.hero-content h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-}
-
-.hero-content p {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-}
-
-/* ---------------------------------------------------------------------- */
-/* SECTIONS & CARDS */
-/* ---------------------------------------------------------------------- */
-section {
-    margin: 0;
-    padding: 4rem 1rem;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-.project {
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.project h2 {
-    margin-bottom: 0.5rem;
-    color: #fff;
-}
-
-.project a {
-    color: #f0a500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.project a:hover {
-    color: #ffd700;
-}
-
-.achievements-list {
-    list-style: disc inside;
-    margin-left: 1em;
-    color: #fff;
-}
-
-.achievements-list li {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(10px);
-}
-
-.achievements-list-item {
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.achievements-list-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.education,
-.certifications {
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.education h2,
-.certifications h2 {
-    color: #fff;
-    margin-bottom: 1rem;
-}
-
-.education p,
-.certifications ul {
-    color: #ccc;
-}
-
-.certifications ul {
-    list-style: disc inside;
-}
-
-.certifications li {
-    margin-bottom: 0.5rem;
-}
-
-#contact ul {
-    list-style: none;
-    color: #fff;
-}
-
-#contact li {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(10px);
-}
-
-#contact a {
-    color: #f0a500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-#contact a:hover {
-    color: #ffd700;
-}
-
-/* ---------------------------------------------------------------------- */
-/* FOOTER */
-/* ---------------------------------------------------------------------- */
-footer {
-    background-color: rgba(34, 34, 34, 0.95);
-    backdrop-filter: blur(10px);
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    position: relative;
+/* =============================
+   FOOTER FIXED UTILITY
+   ============================= */
+.footer-fixed {
+    position: fixed !important;
+    left: 0;
+    bottom: 0;
     width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 9999;
 }
 
-/* ---------------------------------------------------------------------- */
-/* THEME TOGGLE */
-/* ---------------------------------------------------------------------- */
+/* =============================
+   THEME TOGGLE BUTTON
+   ============================= */
 .theme-btn {
     background: white;
     border: none;
@@ -345,13 +227,6 @@ footer {
     height: 24px;
     object-fit: contain;
     transition: all 0.3s ease;
-}
-
-body.light-mode {
-    color: #1a1a1a;
-    background-color: #f8f9fa;
-    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    background-size: 18px 18px;
 }
 
 body.light-mode header {
@@ -502,12 +377,4 @@ body.light-mode #hero {
     #hero p {
         font-size: 1rem;
     }
-}
-
-.footer-fixed {
-    position: fixed !important;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 9999;
 }
