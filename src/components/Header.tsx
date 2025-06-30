@@ -1,11 +1,11 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useThemeStore } from '@/lib/theme';
 import ThemeToggle from './ThemeToggle';
 import Logo from './Logo';
 import { FaHome, FaUser, FaFolderOpen, FaTrophy, FaGraduationCap, FaEnvelope } from 'react-icons/fa';
-import { useEffect } from 'react';
 
 const navigationItems = [
     { name: 'Home', href: '/', icon: <FaHome /> },
@@ -18,17 +18,36 @@ const navigationItems = [
 
 export default function Header() {
     const { theme } = useThemeStore();
+    const [atTop, setAtTop] = useState(true);
+    const [hoveringTop, setHoveringTop] = useState(false);
+    const [visible, setVisible] = useState(true);
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            import('aos').then(AOS => {
-                AOS.init();
-            });
-        }
+        const handleScroll = () => {
+            setAtTop(window.scrollY === 0);
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setHoveringTop(e.clientY < 60);
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    useEffect(() => {
+        setVisible(atTop || hoveringTop);
+    }, [atTop, hoveringTop]);
+
     return (
-        <header className="sticky top-0 z-50">
+        <header
+            className={`${visible ? 'show-bar' : 'hide-bar'}`}
+            style={{ willChange: 'transform' }}
+        >
             <Logo />
             <nav className="hidden md:block">
                 <ul className="flex space-x-6">
